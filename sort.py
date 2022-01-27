@@ -13,7 +13,7 @@ my_list = [4, 3, 6, 5, 1, 2]
 print(bubble_sort(my_list))
 
 
-# Selection sort algorithm
+# Selection sort algorithm      
 def selection_sort(my_list):
     for i in range(len(my_list) - 1):
         min_index = i
