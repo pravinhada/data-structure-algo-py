@@ -1,11 +1,14 @@
+import unittest
+
+
 # binary search O(log n)
-def binary_search(list, item):
+def binary_search(arr, item):
     low = 0
-    high = len(list) - 1
+    high = len(arr) - 1
 
     while low <= high:
-        mid = (low + high)//2
-        guess = list[mid]
+        mid = (low + high) // 2
+        guess = arr[mid]
         if guess == item:
             return mid
         if guess > item:
@@ -16,5 +19,12 @@ def binary_search(list, item):
     return None
 
 
-my_list = [1, 3, 4, 6, 7, 8, 9]
-print(binary_search(my_list, 7))
+class BinarySearchTest(unittest.TestCase):
+
+    def test_binary_search(self):
+        my_list = [1, 3, 4, 6, 7, 8, 9]
+        self.assertEqual(binary_search(my_list, 7), 4)
+
+
+if __name__ == '__main__':
+    unittest.main()
