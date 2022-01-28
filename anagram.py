@@ -1,4 +1,7 @@
 
+import unittest
+
+
 # simple version, not preferred
 def anagram1(string1, string2):
     string1 = string1.replace(' ', '').lower()
@@ -35,7 +38,15 @@ def anagram2(string1, string2):
     return True
 
 
-print(anagram1('dog', 'god'))
-print(anagram1('aa', 'bb'))
+class TestAnagram(unittest.TestCase):
 
-print(anagram2('clint eastwood', 'old west action'))
+    def test_anagram1(self):
+        self.assertEqual(anagram1('dog', 'god'), True)
+        self.assertEqual(anagram1('aa', 'bb'), False)
+
+    def test_anagram2(self):
+        self.assertEqual(anagram2('clint eastwood', 'old west action'), True)
+
+
+if __name__ == '__main__':
+    unittest.main()
