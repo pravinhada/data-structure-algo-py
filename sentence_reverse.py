@@ -1,5 +1,6 @@
 from collections import deque
 
+
 # simple but not for interview
 
 def reverse_sentence1(sen):
@@ -9,7 +10,6 @@ def reverse_sentence1(sen):
 # using algorithmic way
 
 def reverse_sentence2(sen):
-
     words = []
     length = len(sen)
     space = [' ']
@@ -37,13 +37,13 @@ def reverse(words):
     for word in words:
         stack.append(word)
 
-    for i in range(len(stack)):
+    for _ in range(len(stack)):
         result.append(stack.pop())
 
     return result
 
 
 s = 'company and job types'
-result = reverse_sentence2(s)
+sol = reverse_sentence2(s)
 print(s)
-print(result)
+print(sol)
