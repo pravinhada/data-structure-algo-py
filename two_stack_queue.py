@@ -14,7 +14,6 @@ class Queue2Stacks(object):
         return self.outstack.pop()
 
 
-
 q = Queue2Stacks()
 
 q.enqueue(1)
@@ -28,4 +27,3 @@ print(q.dequeue())
 q.enqueue(5)
 q.enqueue(6)
 print(q.dequeue())
-
