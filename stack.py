@@ -31,6 +31,17 @@ class Stack:
         self.height -= 1
         return temp
 
+    def is_empty(self):
+        return self.height == 0
+
+    def size(self):
+        return self.height
+    
+    def peek(self):
+        if self.height == 0:
+            return None
+        return self.top.value
+
     def print_stack(self):
         temp = self.top
         while temp is not None:
@@ -45,7 +56,11 @@ stack.push(11)
 stack.push(41)
 stack.print_stack()
 
+print('peek stack')
+print(stack.peek())
 print('pop stack:')
 print(stack.pop())
 
 stack.print_stack()
+
+print('is empty {}'.format(stack.is_empty()))

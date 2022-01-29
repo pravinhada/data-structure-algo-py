@@ -37,6 +37,12 @@ class Queue:
         self.length -= 1
         return temp
 
+    def is_empty(self):
+        return self.length == 0
+
+    def size(self):
+        return self.length
+
     def print_queue(self):
         temp = self.first
         while temp is not None:
@@ -54,3 +60,5 @@ my_queue.dequeue()
 my_queue.dequeue()
 print(my_queue.dequeue())
 my_queue.print_queue()
+
+print('size of queue {}'.format(my_queue.size()))
