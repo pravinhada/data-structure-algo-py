@@ -132,6 +132,39 @@ class LinkedList:
     def size(self):
         return self.length
 
+    def cycle_check(self):
+        # check whether the linked list is cyclic
+
+        marker1 = self.head
+        marker2 = self.head
+
+        while marker2 != None and marker2.next != None:
+            marker1 = marker1.next
+            marker2 = marker2.next.next
+
+            if marker1 == marker2:
+                return True
+
+        return False
+
+    def nth_to_last_node(self, n,):
+        # find the Nth to the Last Node in Linked list
+
+        left_pointer = self.head
+        right_pointer = self.head
+
+        for _ in range(n-1):
+            if not right_pointer.next:
+                raise LookupError('Error: n is larger than the linked list')
+
+            right_pointer = right_pointer.next
+
+        while right_pointer.next:
+            left_pointer = left_pointer.next
+            right_pointer = right_pointer.next
+
+        return left_pointer
+
 
 my_linked_list = LinkedList(4)
 my_linked_list.append(25)
@@ -157,42 +190,8 @@ print('\n')
 my_linked_list.print_list()
 
 
-# check whether the linked list is cyclic
-
-def cycle_check(node):
-    marker1 = node
-    marker2 = node
-
-    while marker2 != None and marker2.next != None:
-        marker1 = marker1.next
-        marker2 = marker2.next.next
-
-        if marker1 == marker2:
-            return True
-
-    return False
-
-
-print('is cyclic? {}'.format(cycle_check(my_linked_list.head)))
-
-
-# find the Nth to the Last Node in Linked list
-def nth_to_last_node(n, head):
-    left_pointer = head
-    right_pointer = head
-
-    for _ in range(n-1):
-        if not right_pointer.next:
-            raise LookupError('Error: n is larger than the linked list')
-
-        right_pointer = right_pointer.next
-
-    while right_pointer.next:
-        left_pointer = left_pointer.next
-        right_pointer = right_pointer.next
-
-    return left_pointer
+print('Is cyclic linked list? {}'.format(my_linked_list.cycle_check()))
 
 
 print('nth to the last node of 3 is: {}'. format(
-    nth_to_last_node(3, my_linked_list.head).value))
+    my_linked_list.nth_to_last_node(2).value))
