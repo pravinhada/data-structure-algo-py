@@ -22,6 +22,7 @@ print(sum_recursive(4321))
 
 
 def word_split(phrase, list_of_words, output=None):
+    # base case
     if output is None:
         return []
 
@@ -34,4 +35,5 @@ def word_split(phrase, list_of_words, output=None):
     return output
 
 
-print(word_split('themanran', ['man', 'ran', 'man', 'dog', 'the', 'woman'], []))
+print(word_split('themanran', ['man', 'ran',
+      'man', 'dog', 'the', 'woman'], []))
