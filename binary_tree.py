@@ -17,7 +17,9 @@ class BinarySearchTree:
         if self.root is None:
             self.root = new_node
             return True
+
         temp = self.root
+
         while True:
             if new_node.value == temp.value:
                 return False
@@ -34,6 +36,7 @@ class BinarySearchTree:
 
     def contains(self, value):
         temp = self.root
+
         while temp is not None:
             if value == temp.value:
                 return True
@@ -44,13 +47,17 @@ class BinarySearchTree:
         return False
 
     def min_value_node(self, current_node):
+
         while current_node.left is not None:
             current_node = current_node.left
+
         return current_node
 
     def max_value_node(self, current_node):
+
         while current_node.right is not None:
             current_node = current_node.right
+
         return current_node
 
     def breadth_first_search(self):
@@ -66,6 +73,7 @@ class BinarySearchTree:
                 queue.append(current_node.left)
             if current_node.right is not None:
                 queue.append(current_node.right)
+
         return results
 
     def depth_first_pre_order(self):
@@ -79,6 +87,7 @@ class BinarySearchTree:
                 traverse(current_node.right)
 
         traverse(self.root)
+
         return results
 
     def depth_first_post_order(self):
@@ -92,6 +101,7 @@ class BinarySearchTree:
             results.append(current_node.value)
 
         traverse(self.root)
+
         return results
 
     def depth_first_inorder(self):
@@ -105,6 +115,7 @@ class BinarySearchTree:
                 traverse(current_node.right)
 
         traverse(self.root)
+
         return results
 
 
