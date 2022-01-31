@@ -1,36 +1,47 @@
 # base case -> must have this otherwise infinite loop or stack overflow
 # recursive case
 
-def funcThree():
+def func_three():
     print('Three')
 
 
-def funcTwo():
-    funcThree()
+def func_two():
+    func_three()
     print('Two')
 
 
-def funcOne():
-    funcTwo()
+def func_one():
+    func_two()
     print('One')
 
 
-funcOne()
+func_one()
 
 
 def factorial(n):
     if n == 1:
         return 1
-    return n * factorial(n-1)
+    return n * factorial(n - 1)
 
 
 print(factorial(4))
 
 
-def sum(list):
-    if list == []:
+def recursive_sum(arr):
+    if not arr:
         return 0
-    return list[0] + sum(list[1:])
+    return arr[0] + recursive_sum(arr[1:])
 
 
-print(sum([2, 4, 5]))
+print(recursive_sum([2, 4, 5]))
+
+
+def reverse_string(s):
+    # base case
+    if len(s) <= 1:
+        return s
+
+    return reverse_string(s[1:]) + s[0]
+
+
+print(reverse_string('hello world'))
