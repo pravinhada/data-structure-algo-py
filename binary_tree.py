@@ -1,3 +1,5 @@
+# each individual node
+
 class Node:
     def __init__(self, value):
         self.value = value
@@ -60,6 +62,7 @@ class BinarySearchTree:
 
         return current_node
 
+    # traverse each layer until child node
     def breadth_first_search(self):
         current_node = self.root
         queue = []
@@ -76,6 +79,7 @@ class BinarySearchTree:
 
         return results
 
+    # traverse parent then left subtree first and then right subtree
     def depth_first_pre_order(self):
         results = []
 
@@ -90,6 +94,7 @@ class BinarySearchTree:
 
         return results
 
+    # traverse left subtree, right subtree and parent
     def depth_first_post_order(self):
         results = []
 
@@ -104,6 +109,7 @@ class BinarySearchTree:
 
         return results
 
+    # traverse left subtree, parent and then right subtree
     def depth_first_inorder(self):
         results = []
 
@@ -139,7 +145,7 @@ print(my_tree.min_value_node(my_tree.root))
 
 print(my_tree.max_value_node(my_tree.root))
 
-print('bfs', my_tree.breadth_first_search())
+print('breadth first search', my_tree.breadth_first_search())
 print('dfs-preorder', my_tree.depth_first_pre_order())
 print('dfs-postorder', my_tree.depth_first_post_order())
 print('dfs-inorder', my_tree.depth_first_inorder())
