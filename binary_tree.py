@@ -1,5 +1,8 @@
 # each individual node
 
+from re import I
+
+
 class Node:
     def __init__(self, value):
         self.value = value
@@ -47,6 +50,36 @@ class BinarySearchTree:
             else:
                 temp = temp.right
         return False
+
+    def delete(self, value):
+
+        def delete_node(node, value):
+            if node is None:
+                return node
+
+            if value < node.value:
+                node.left = delete_node(node.left, value)
+            elif value > node.value:
+                node.right = delete_node(node.right, value)
+            else:
+                if node.left is None:
+                    temp = node.right
+                    node = None
+                    return temp
+
+                if node.right is None:
+                    temp = node.left
+                    node = None
+                    return temp
+
+                temp = self.min_value_node(node.right)
+                node.value = temp.value
+
+                node.right = delete_node(node.right, value)
+
+            return node
+
+        delete_node(self.root, value)
 
     def min_value_node(self, current_node):
 
@@ -124,6 +157,42 @@ class BinarySearchTree:
 
         return results
 
+    def print_tree(self):
+        # print the tree vertically
+
+        def print_binary_tree(node, space, height):
+            if node is None:
+                return
+            space += height
+            print_binary_tree(node.right, space, height)
+
+            #print(' ' * height)
+            print(' ' * space + str(node.value))
+
+            print_binary_tree(node.left, space, height)
+
+        print_binary_tree(self.root, 0, 5)
+
+    def trim_tree(self, min_value, max_value):
+        # trim the node and only keep node between min and max value
+
+        def trim(node, min_value, max_value):
+            if not node:
+                return
+            node.left = trim(node.left, min_value, max_value)
+            node.right = trim(node.right, min_value, max_value)
+
+            if min_value <= node.value <= max_value:
+                return node
+
+            if node.value < min_value:
+                return node.right
+
+            if node.value > max_value:
+                return node.left
+
+        trim(self.root, min_value, max_value)
+
 
 my_tree = BinarySearchTree()
 
@@ -134,6 +203,10 @@ my_tree.insert(27)
 my_tree.insert(76)
 my_tree.insert(52)
 my_tree.insert(82)
+my_tree.insert(76)
+my_tree.insert(92)
+my_tree.insert(41)
+my_tree.insert(31)
 
 print(my_tree.root)
 print(my_tree.root.left)
@@ -141,11 +214,21 @@ print(my_tree.root.right)
 
 print(my_tree.contains(18))
 
-print(my_tree.min_value_node(my_tree.root))
+print('min value in tree: {}'.format(my_tree.min_value_node(my_tree.root)))
 
-print(my_tree.max_value_node(my_tree.root))
+print('max value in tree: {}'.format(my_tree.max_value_node(my_tree.root)))
 
-print('breadth first search', my_tree.breadth_first_search())
-print('dfs-preorder', my_tree.depth_first_pre_order())
-print('dfs-postorder', my_tree.depth_first_post_order())
-print('dfs-inorder', my_tree.depth_first_inorder())
+print('breadth first search: {}'.format(my_tree.breadth_first_search()))
+print('dfs-preorder: {}'.format(my_tree.depth_first_pre_order()))
+print('dfs-postorder: {}'.format(my_tree.depth_first_post_order()))
+print('dfs-inorder: {}'.format(my_tree.depth_first_inorder()))
+
+print('printing tree:')
+my_tree.print_tree()
+my_tree.trim_tree(20, 90)
+print('breadth first search after trim', my_tree.breadth_first_search())
+my_tree.print_tree()
+
+my_tree.delete(41)
+print('breadth first search after delete 41', my_tree.breadth_first_search())
+my_tree.print_tree()
