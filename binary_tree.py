@@ -1,8 +1,5 @@
 # each individual node
 
-from re import I
-
-
 class Node:
     def __init__(self, value):
         self.value = value
