@@ -30,6 +30,13 @@ class HashTable:
                     return self.data_map[index][i][1]
         return None
 
+    def delete_item(self, key):
+        index = self.__hash(key)
+        if self.data_map[index] is not None:
+            for i in range(len(self.data_map[index])):
+                if self.data_map[index][i][0] == key:
+                    self.data_map[index].pop(i)
+
     def keys(self):
         all_keys = []
         for i in range(len(self.data_map)):
@@ -57,3 +64,8 @@ print(my_hash_table.get_item('nails'))
 print(my_hash_table.get_item('bolts'))
 
 print(my_hash_table.keys())
+
+my_hash_table.delete_item('nails')
+
+print('printing after delete...')
+my_hash_table.print_table()
