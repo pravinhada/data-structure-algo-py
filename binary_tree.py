@@ -51,6 +51,7 @@ class BinarySearchTree:
     def delete(self, value):
 
         def delete_node(node, value):
+            # base case
             if node is None:
                 return node
 

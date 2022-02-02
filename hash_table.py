@@ -40,7 +40,7 @@ class HashTable:
 
     def print_table(self):
         for i, val in enumerate(self.data_map):
-            print(i, ": ", val)
+            print(str(i) + " -> " + str(val))
 
 
 my_hash_table = HashTable()
@@ -49,6 +49,7 @@ my_hash_table.set_item('bolts', 100)
 my_hash_table.set_item('washers', 20)
 my_hash_table.set_item('lumber', 30)
 my_hash_table.set_item('nails', 55)
+my_hash_table.set_item('screws', 34)
 my_hash_table.print_table()
 
 print(my_hash_table.get_item('shaw'))
