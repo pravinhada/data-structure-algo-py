@@ -1,6 +1,3 @@
-from tkinter import Y
-
-
 def calc_overlap(coor1, dim1, coor2, dim2):
     greater = max(coor1, coor2)
     lower = min(coor1+dim1, coor2+dim2)
