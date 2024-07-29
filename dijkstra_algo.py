@@ -14,7 +14,6 @@ graph['b']['fin'] = 5
 
 graph['fin'] = {}
 
-
 # cost of node
 infinity = float("inf")
 costs = {}
@@ -29,6 +28,7 @@ parents['b'] = 'start'
 parents['fin'] = None
 
 processed = []
+
 
 # float('inf') is infinity
 def find_lowest_cost_node(costs):
@@ -54,7 +54,6 @@ while node is not None:
             parents[n] = node
     processed.append(node)
     node = find_lowest_cost_node(costs)
-
 
 print('cost from the start of each node')
 print(costs)

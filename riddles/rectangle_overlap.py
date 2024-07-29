@@ -1,13 +1,13 @@
-def calc_overlap(coor1, dim1, coor2, dim2):
-    greater = max(coor1, coor2)
-    lower = min(coor1+dim1, coor2+dim2)
+def calc_overlap(co1, dim1, co2, dim2):
+    greater = max(co1, co2)
+    lower = min(co1 + dim1, co2 + dim2)
 
     if greater >= lower:
         return (None, None)
 
     overlap = lower - greater
 
-    return (greater, overlap)
+    return greater, overlap
 
 
 def calc_rect_overlap(r1, r2):

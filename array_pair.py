@@ -3,13 +3,13 @@ import unittest
 # this doesn't work
 
 
-def pair_sum1(list, sum):
+def pair_sum1(list_in, sum_in):
     count = 0
 
     for i in range(len(list)-1):
-        for j in range(i + 1, len(list)):
-            if (list[i] + list[j]) == sum:
-                print(list[i], list[j])
+        for j in range(i + 1, len(list_in)):
+            if (list_in[i] + list_in[j]) == sum_in:
+                print(list_in[i], list_in[j])
                 count += 1
 
     return count

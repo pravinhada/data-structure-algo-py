@@ -49,7 +49,7 @@ def depth_first_search(graph, start):
 
         if vertex not in visited:
             visited.add(vertex)
-            # set substraction set(['B', 'C']) - set('B')
+            # set subtraction set(['B', 'C']) - set('B')
             stack.extend(graph[vertex] - visited)
 
     return visited

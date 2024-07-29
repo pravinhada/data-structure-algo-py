@@ -20,4 +20,4 @@ print(profit([23, 12, 3, 10, 7, 6, 13, 11, 9, 15, 2]))
 
 print(profit([23, 12, 10, 7, 5, 4, 2]))
 
-print(profit([23]))
+print(profit([23, 3]))

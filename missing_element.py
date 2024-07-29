@@ -40,9 +40,9 @@ def finder3(arr1, arr2):
     return result
 
 
-arr1 = [1, 2, 3, 4, 5, 6, 7]
-arr2 = [3, 7, 2, 1, 4, 6]
+a1 = [1, 2, 3, 4, 5, 6, 7]
+a2 = [3, 7, 2, 1, 4, 6]
 
-print(finder(arr1, arr2))
-print(finder2(arr1, arr2))
-print(finder3(arr1, arr2))
+print(finder(a1, a2))
+print(finder2(a1, a2))
+print(finder3(a1, a2))

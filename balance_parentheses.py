@@ -8,7 +8,7 @@ def balance_check(s):
 
     opening = set('([{')  # this will create set of each brackets
 
-    matches = set([('(', ')'), ('[', ']'), ('{', '}')])
+    matches = {('(', ')'), ('[', ']'), ('{', '}')}
 
     stack = []
 

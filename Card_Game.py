@@ -5,27 +5,28 @@ SUITES = "H D S C".split()
 
 RANKS = "2 3 4 5 6 7 8 9 J Q K A".split()
 
+
 class Deck:
 
     def __init__(self):
         print("Creating new ordered Deck!")
-        self.allcards = [(s, r) for s in SUITES for r in RANKS]
+        self.all_cards = [(s, r) for s in SUITES for r in RANKS]
 
     def shuffle(self):
         print("Shuffling Deck")
-        shuffle(self.allcards)
+        shuffle(self.all_cards)
 
     def split_in_half(self):
-        return (self.allcards[:26], self.allcards[26:])
+        return self.all_cards[:26], self.all_cards[26:]
 
 
 class Hand:
-    
+
     def __init__(self, cards):
         self.cards = cards
 
     def __str__(self):
-        return ("Contains {} cards".format(len(self.cards)))    
+        return "Contains {} cards".format(len(self.cards))
 
     def add(self, added_cards):
         self.cards.extend(added_cards)
@@ -35,7 +36,7 @@ class Hand:
 
 
 class Player:
-    
+
     def __init__(self, name, hand):
         self.name = name
         self.hand = hand
@@ -112,9 +113,8 @@ while user.still_has_cards() and comp.still_has_cards():
         else:
             comp.hand.add(table_cards)
 
-
 print("game over, number of rounds: " + str(total_rounds))
-print("a war happend " + str(war_count))
+print("a war happened " + str(war_count))
 
 print("Does the computer still have cards?")
 print(str(comp.still_has_cards()))

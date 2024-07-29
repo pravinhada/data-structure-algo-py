@@ -18,7 +18,7 @@ class HashTable:
 
     def set_item(self, key, value):
         index = self.__hash(key)
-        if self.data_map[index] == None:
+        if self.data_map[index] is None:
             self.data_map[index] = []
         self.data_map[index].append([key, value])
 
